@@ -4,6 +4,8 @@ Este es un proyecto web interactivo que muestra 100 razones por las que amo a un
 
 ## Estructura del Proyecto
 
+es importante mencionar que tienes que crear las carpetas de videos y audios 
+
 - `index.html`: Archivo principal que estructura la interfaz del libro interactivo.
 - `estilos.css`: Contiene los estilos y diseño de la página.
 - `script.js`: Archivo JavaScript encargado de la funcionalidad del cambio de razones.
