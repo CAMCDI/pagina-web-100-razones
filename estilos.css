@@ -1,24 +1,29 @@
+/* Fuente principal */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', Arial, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     background-color: #fde2e4;
     margin: 0;
+    padding: 20px;
     color: black;
 }
 
+/* Contenedor del libro */
 .book-container {
     text-align: center;
     background: #fff;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-    width: 350px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    max-width: 400px;
     transition: transform 0.5s ease-in-out;
 }
 
+/* Página interna */
 .page {
     min-height: 200px;
     display: flex;
@@ -29,15 +34,16 @@ body {
     transition: opacity 0.5s ease-in-out;
 }
 
+/* Botones */
 button {
-    margin-top: 15px;
-    padding: 10px 15px;
+    margin: 10px 5px 0 5px;
+    padding: 10px 18px;
     border: none;
     background-color: #ffb6c1;
     color: white;
     font-size: 16px;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 6px;
     transition: background 0.3s;
 }
 
@@ -45,8 +51,41 @@ button:hover {
     background-color: #ff7f9e;
 }
 
+/* Imágenes, videos, y YouTube */
 .media {
     max-width: 100%;
-    margin-top: 10px;
+    margin-top: 12px;
     border-radius: 8px;
+}
+
+/* Iframe de YouTube responsivo */
+#youtube-container iframe {
+    width: 100%;
+    max-height: 220px;
+    border-radius: 8px;
+}
+
+/* RESPONSIVO */
+@media (max-width: 480px) {
+    .book-container {
+        padding: 15px;
+        max-width: 90%;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 8px 12px;
+    }
+
+    #youtube-container iframe {
+        max-height: 180px;
+    }
+}
+
+#reason, #count {
+  transition: opacity 0.5s ease;
+}
+
+.media {
+  transition: opacity 0.5s ease;
 }
