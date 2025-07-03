@@ -122,9 +122,7 @@ const reasons = [
 
   const images = reasons.map((_, i) => `imagenes/${i + 1}.jpg`);
 
-  const videoSources = {
-    50: "videos/3.mp4" // Ejemplo si tienes algún otro video local
-  };
+
 
   const spotifyLinks = {
     21: "https://open.spotify.com/embed/track/0SRddBTphQwQcfqw4Br1uX?utm_source=generator" 
