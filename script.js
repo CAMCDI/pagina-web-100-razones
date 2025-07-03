@@ -118,14 +118,15 @@ const reasons = [
 "Porque simplemente te amo, sin importar nada más... sin importar nadie mas"
 ];
 
-
-
-  const images = reasons.map((_, i) => `imagenes/${i + 1}.jpg`);
-
-
+ const images = reasons.map((_, i) => `imagenes/${i + 1}.jpg`);
 
   const spotifyLinks = {
-    21: "https://open.spotify.com/embed/track/0SRddBTphQwQcfqw4Br1uX?utm_source=generator" 
+    21: "https://open.spotify.com/embed/track/0SRddBTphQwQcfqw4Br1uX?utm_source=generator"
+  };
+
+  const videoSources = {
+    // Si en el futuro quieres videos, aquí van
+    // 50: "videos/50.mp4"
   };
 
   let count = 1;
@@ -135,14 +136,15 @@ const reasons = [
     reasonEl.textContent = reasons[count - 1];
     imageEl.src = images[count - 1];
 
-    // Ocultar todo
+    // Ocultar y resetear todo
     imageEl.style.display = "block";
     videoEl.style.display = "none";
     spotifyContainer.style.display = "none";
     videoEl.pause();
-    spotifyIframe.src = "";
     videoSource.src = "";
+    spotifyIframe.src = "about:blank"; // Limpiar Spotify
 
+    // Lógica según el tipo de contenido
     if (spotifyLinks[count]) {
       spotifyContainer.style.display = "block";
       spotifyIframe.src = spotifyLinks[count];
@@ -155,7 +157,8 @@ const reasons = [
       imageEl.style.display = "none";
       audio.pause();
     } else {
-      audio.play().catch(() => {});
+      // Asegura que Spotify ya fue limpiado antes de reproducir
+      setTimeout(() => audio.play().catch(() => {}), 300);
     }
 
     prevBtn.disabled = count === 1;
@@ -199,7 +202,8 @@ const reasons = [
     finalDiv.style.color = "white";
     finalDiv.style.fontSize = "2rem";
     finalDiv.style.zIndex = 9999;
-    finalDiv.innerHTML = "<p style='padding: 30px; text-align: center;'>Te amo con todo mi ser, mi pequeña 💖</p>";
+    finalDiv.innerHTML =
+      "<p style='padding: 30px; text-align: center;'>Te amo con todo mi ser, mi pequeña 💖</p>";
     document.body.appendChild(finalDiv);
     contenido.style.display = "none";
     audio.pause();
